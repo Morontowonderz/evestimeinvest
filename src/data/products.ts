@@ -181,4 +181,4 @@ export function getProduct(id: string): Product | undefined {
   return products.find((p) => p.id === id);
 }
 
-export const SITE_URL = "https://carbon-craft-connect.lovable.app";
+export { SITE_URL } from "../lib/site-url";

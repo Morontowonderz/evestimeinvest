@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { SITE_URL } from "../lib/site-url";
 
-const CANONICAL = "https://carbon-craft-connect.lovable.app/terms";
+const CANONICAL = `${SITE_URL}/terms`;
 
 export const Route = createFileRoute("/terms")({
   head: () => ({

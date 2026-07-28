@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { SITE_URL } from "../lib/site-url";
 import { useMemo, useState } from "react";
 import { z } from "zod";
 
 import { products } from "../data/products";
 
-const WHATSAPP_NUMBER = "1234567890"; // ← change this
+const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER ?? "";
 
 export const Route = createFileRoute("/checkout")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -28,13 +29,13 @@ export const Route = createFileRoute("/checkout")({
         content: "Place your Evestime Invest order via WhatsApp.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://carbon-craft-connect.lovable.app/checkout" },
+      { property: "og:url", content: `${SITE_URL}/checkout` },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Checkout — Evestime Invest" },
       { name: "twitter:description", content: "Place your Evestime Invest order via WhatsApp." },
       { name: "robots", content: "noindex" },
     ],
-    links: [{ rel: "canonical", href: "https://carbon-craft-connect.lovable.app/checkout" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/checkout` }],
   }),
   component: CheckoutPage,
 });

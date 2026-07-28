@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { Lang, Product } from "../data/products";
 
-const WHATSAPP_NUMBER = "1234567890";
+const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER ?? "";
 
 const ui = {
   en: {

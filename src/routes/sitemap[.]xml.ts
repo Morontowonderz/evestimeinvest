@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SITE_URL } from "../lib/site-url";
 import type {} from "@tanstack/react-start";
 
 import { products, type Lang } from "../data/products";
 
-const BASE_URL = "https://carbon-craft-connect.lovable.app";
+const BASE_URL = SITE_URL;
 const LOCALES: Lang[] = ["en", "es", "pt"];
 
 interface SitemapEntry {
