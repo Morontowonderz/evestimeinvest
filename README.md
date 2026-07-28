@@ -1,29 +1,42 @@
-# Welcome to your Lovable project
+# EVESTIME
 
-This project was built with [Lovable](https://lovable.dev).
+Production-oriented TanStack Start application (Lovable export undergoing senior architecture refactor).
 
-## Build with Lovable
+## Requirements
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+- Node.js `>=22.12.0`
+- npm only (do not use bun/yarn/pnpm lockfiles)
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Setup
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
+cp .env.example .env
 npm i
 npm run dev
 ```
 
-## Built with
+### Environment variables
 
-- TanStack Start
+| Variable               | Purpose                                                                |
+| ---------------------- | ---------------------------------------------------------------------- |
+| `VITE_SITE_URL`        | Absolute site origin, no trailing slash (canonicals, sitemap, JSON-LD) |
+| `VITE_WHATSAPP_NUMBER` | WhatsApp digits for checkout / inquire CTAs                            |
+
+Set the same values in the Vercel project for preview and production. Keep `public/robots.txt` Sitemap URL aligned with `VITE_SITE_URL` until robots is served dynamically.
+
+## Scripts
+
+```sh
+npm run dev
+npm run lint
+npm run build
+```
+
+## Stack
+
+- TanStack Start / Router
+- React 19
 - TypeScript
-- React
-- Tailwind CSS
+- Tailwind CSS 4
+- Vercel Pro (target host)
+# evestimeinvest
