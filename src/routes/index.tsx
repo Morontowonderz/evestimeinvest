@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { SITE_URL } from "../lib/site-url";
 import { useEffect, useMemo, useState } from "react";
 import {
   Copy,
@@ -56,12 +57,12 @@ export const Route = createFileRoute("/")({
           "Evestime Invest: cutting-edge copy trading, real-time analytics, and regulated multi-asset execution. Trade smarter with elite traders in one click.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://carbon-craft-connect.lovable.app/" },
+      { property: "og:url", content: `${SITE_URL}/` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Evestime Invest — Copy Trading" },
       { name: "twitter:description", content: "Copy elite traders in one click. Regulated multi-asset execution." },
     ],
-    links: [{ rel: "canonical", href: "https://carbon-craft-connect.lovable.app/" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
     scripts: [
       {
         type: "application/ld+json",
@@ -70,10 +71,10 @@ export const Route = createFileRoute("/")({
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://carbon-craft-connect.lovable.app/#org",
+              "@id": `${SITE_URL}/#org`,
               name: "Evestime Invest",
-              url: "https://carbon-craft-connect.lovable.app/",
-              logo: "https://carbon-craft-connect.lovable.app/favicon.ico",
+              url: `${SITE_URL}/`,
+              logo: `${SITE_URL}/favicon.ico`,
               sameAs: [
                 "https://twitter.com/evestimeinvest",
                 "https://www.linkedin.com/company/evestimeinvest",
@@ -95,21 +96,21 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "WebSite",
-              "@id": "https://carbon-craft-connect.lovable.app/#website",
-              url: "https://carbon-craft-connect.lovable.app/",
+              "@id": `${SITE_URL}/#website`,
+              url: `${SITE_URL}/`,
               name: "Evestime Invest",
-              publisher: { "@id": "https://carbon-craft-connect.lovable.app/#org" },
+              publisher: { "@id": `${SITE_URL}/#org` },
               inLanguage: ["en", "es", "pt"],
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://carbon-craft-connect.lovable.app/?q={search_term_string}",
+                target: `${SITE_URL}/?q={search_term_string}`,
                 "query-input": "required name=search_term_string",
               },
             },
             {
               "@type": "FinancialService",
               name: "Evestime Invest Copy Trading",
-              provider: { "@id": "https://carbon-craft-connect.lovable.app/#org" },
+              provider: { "@id": `${SITE_URL}/#org` },
               areaServed: "Worldwide",
               serviceType: "Copy trading, crypto and multi-asset execution",
             },
@@ -124,7 +125,7 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "AggregateRating",
-              itemReviewed: { "@id": "https://carbon-craft-connect.lovable.app/#org" },
+              itemReviewed: { "@id": `${SITE_URL}/#org` },
               ratingValue: "4.6",
               reviewCount: "2782",
               bestRating: "5",
