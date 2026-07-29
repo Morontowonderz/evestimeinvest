@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Initial data model for Neon Postgres (serverless-friendly)
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  name           String?
+  hashedPassword String?
+  createdAt      DateTime  @default(now())
+  sessions       Session[]
+  orders         Order[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  expiresAt DateTime?
+  createdAt DateTime @default(now())
+}
+
+model Product {
+  id          String     @id @default(cuid())
+  sku         String     @unique
+  name        String
+  description String?
+  priceCents  Int
+  images      String[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  orderItems  OrderItem[]
+}
+
+model Order {
+  id         String     @id @default(cuid())
+  user       User?      @relation(fields: [userId], references: [id])
+  userId     String?
+  totalCents Int
+  status     String     @default("PENDING")
+  createdAt  DateTime   @default(now())
+  items      OrderItem[]
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  order     Order    @relation(fields: [orderId], references: [id])
+  orderId   String
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String
+  quantity  Int
+  unitPrice Int
+}
